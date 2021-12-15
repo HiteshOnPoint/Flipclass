@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:paddingTop="30dp"
+    android:gravity="center_horizontal"
+    tools:context=".MessagesActivity">
+
+    <include layout="@layout/app_toolbar_one" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_no_messages_image" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Messages"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="@string/no_message_description"
+        android:textSize="13sp"
+        android:textColor="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_width="145dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:background="@drawable/ic_btn_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search now"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

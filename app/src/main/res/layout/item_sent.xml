@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_sentMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="@drawable/sent_message_background">
+
+        <TextView
+            android:id="@+id/tv_sentMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is sent message"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_sentMessageTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="1dp"
+        android:paddingEnd="2dp"
+        android:layout_below="@id/rl_sentMessage"
+        android:text="6.30PM"
+        android:paddingStart="2dp"
+        android:textColor="#9A9898"
+        android:textSize="11sp" />
+
+</RelativeLayout>

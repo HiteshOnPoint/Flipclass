@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "593008689688",
+    "firebase_url": "https://flipclass-d87e8-default-rtdb.firebaseio.com",
+    "project_id": "flipclass-d87e8",
+    "storage_bucket": "flipclass-d87e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593008689688:android:29f1acf380d3b08a14b96d",
+        "android_client_info": {
+          "package_name": "com.ops.flipclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593008689688-6bg7to0ijnfi1gkdic64avgbtao3kiia.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ops.flipclass",
+            "certificate_hash": "1611518821fe49233ea7f08d55183b2df44390d5"
+          }
+        },
+        {
+          "client_id": "593008689688-ar12v2rorrbnitl81k2vtop905egdria.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7Z0DsniqGD62iTHH4yzR50kniSFhW-lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593008689688-2e4trvn39fjgl247mpsbnmp68siblop0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
