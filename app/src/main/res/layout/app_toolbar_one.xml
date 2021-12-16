@@ -51,7 +51,9 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_user_icon"/>
+            android:src="@drawable/ic_user_icon"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 
