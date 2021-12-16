@@ -84,7 +84,6 @@ public class FontsUtils {
             case FontsUtils.Poppins_Medium:
                 typeface = Typeface.createFromAsset(context.getAssets(), "Poppins-Medium.ttf");
                 break;
-
             case FontsUtils.Poppins_MediumItalic:
                 typeface = Typeface.createFromAsset(context.getAssets(), "Poppins-MediumItalic.ttf");
                 break;
