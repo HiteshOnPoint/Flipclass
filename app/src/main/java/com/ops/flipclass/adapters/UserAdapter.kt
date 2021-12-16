@@ -19,11 +19,13 @@ import com.ops.flipclass.R
 import com.ops.flipclass.models.User
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.app_toolbar_one.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class UserAdapter(val context: Context, val userList: ArrayList<User>):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-    var lastMessage : String? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         var itemView = LayoutInflater.from(context).inflate(R.layout.item_chat, parent, false)
@@ -48,6 +50,12 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
                     if (snapshot.hasChildren()){
                         for (snapshot1 in snapshot.children){
                             holder.textLastMessage.text = snapshot1.child("message").value.toString()
+
+                            val timeStamp: Long? = snapshot1.child("timeStamp").value as Long?
+                            val simpleTimeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+                            val time: String = simpleTimeFormat.format(timeStamp)
+
+                            holder.textLastMessageTime.text = ("$time")
                         }
                     }
                     notifyDataSetChanged()
@@ -86,6 +94,7 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
         val imgOffline = itemView.findViewById<CircleImageView>(R.id.civ_offlineBadge)
         val imgPhoto = itemView.findViewById<CircleImageView>(R.id.civ_user_image_chat)
         val textLastMessage = itemView.findViewById<TextView>(R.id.tv_lastMessage)
+        val textLastMessageTime = itemView.findViewById<TextView>(R.id.tv_timeAgo)
 
     }
 }
