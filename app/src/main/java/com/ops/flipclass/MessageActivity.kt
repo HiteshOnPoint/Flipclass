@@ -2,9 +2,12 @@ package com.ops.flipclass
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
+import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -40,6 +43,13 @@ class MessageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_message)
 
         mAuth = FirebaseAuth.getInstance()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val w: Window = window
+            w.setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
 
         mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
         editor = mSharedPreferences.edit()

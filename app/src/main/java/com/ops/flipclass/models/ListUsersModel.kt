@@ -16,7 +16,7 @@ data class ListUsersModel(
         var last_name: String,
         var last_message: String,
         var time_ago: String,
-        var unseen_count: Int,
+        var unseen_count: Int
     )
 
     data class Support(

@@ -1,9 +1,12 @@
 package com.ops.flipclass
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -27,7 +30,13 @@ class SignUpPageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up_page)
 
         mAuth = FirebaseAuth.getInstance()
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val w: Window = window
+            w.setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
         etName = findViewById(R.id.et_Name)
         etEmail = findViewById(R.id.et_Email)
         etPassword = findViewById(R.id.et_Password)

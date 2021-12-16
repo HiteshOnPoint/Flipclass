@@ -2,18 +2,16 @@ package com.ops.flipclass
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
-import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_login.*
@@ -24,7 +22,7 @@ class TeacherActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
-    private lateinit var mGoogleSignInClient : GoogleSignInClient
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
 
     private lateinit var mSharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
@@ -33,9 +31,13 @@ class TeacherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teacher)
 
-        /*window?.decorView?.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-        window.statusBarColor = Color.TRANSPARENT*/
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val w: Window = window
+            w.setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
 
         mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
         editor = mSharedPreferences.edit()
@@ -112,10 +114,14 @@ class TeacherActivity : AppCompatActivity() {
                 })*/
 
             mAuth.signOut()
-            val intent = Intent(this@TeacherActivity, LoginActivity::class.java)/*setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)*/
+            val intent = Intent(
+                this@TeacherActivity,
+                LoginActivity::class.java
+            )/*setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)*/
             editor.clear()
             editor.apply()
-            Toast.makeText(this@TeacherActivity, "Signed Out Successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@TeacherActivity, "Signed Out Successfully", Toast.LENGTH_SHORT)
+                .show()
             startActivity(intent)
             finish()
         }

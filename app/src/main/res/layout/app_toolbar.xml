@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="70dp"
     android:background="#FFFFFF"
-    android:paddingStart="40dp"
-    android:paddingEnd="40dp"
-    android:orientation="horizontal">
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    android:orientation="horizontal"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="5dp">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="0.8"
         android:orientation="vertical"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:paddingRight="4dp">
 
         <TextView
             android:id="@+id/tv_hello"
@@ -31,7 +35,9 @@
             android:text=""
             android:textColor="#333333"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxLines="1"/>
 
     </LinearLayout>
 
@@ -48,7 +54,9 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_user_icon"/>
+            android:src="@drawable/ic_user_icon"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 
