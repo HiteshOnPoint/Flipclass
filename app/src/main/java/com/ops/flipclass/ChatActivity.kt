@@ -17,13 +17,18 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ops.flipclass.adapters.MessageAdapter
 import com.ops.flipclass.models.Message
+import com.ops.flipclass.view.FCEditText
 import kotlinx.android.synthetic.main.activity_chat.*
 import kotlinx.android.synthetic.main.app_toolbar_one.*
+import kotlinx.android.synthetic.main.app_toolbar_one.llBackButton
+import kotlinx.android.synthetic.main.app_toolbar_one.tvToolbarTitle
+import kotlinx.android.synthetic.main.app_toolbar_two.*
+import kotlinx.android.synthetic.main.chat_toolbar.*
 
 class ChatActivity : AppCompatActivity() {
 
     private lateinit var chatRecyclerview: RecyclerView
-    private lateinit var messageBox: EditText
+    private lateinit var messageBox: FCEditText
     private lateinit var sendButton: LinearLayout
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<Message>
@@ -102,12 +107,16 @@ class ChatActivity : AppCompatActivity() {
                         mDbRef.child("chats").child(receiverRoom!!).child("messages").push()
                             .setValue(messageObject)
                     }
-                messageBox.setText("")
+                messageBox.text = ""
             }else{
                 Toast.makeText(this@ChatActivity, "Please Type something", Toast.LENGTH_SHORT)
                     .show()
             }
 
+        }
+
+        llBackButton.setOnClickListener {
+            onBackPressed()
         }
 
     }

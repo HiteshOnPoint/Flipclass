@@ -37,7 +37,6 @@
         android:textColor="@color/black"
         android:textSize="22dp"
         android:text="Messages"
-        android:textStyle="bold"
         android:textAlignment="center"
         app:textStyle="@integer/Poppins_Medium"/>
 

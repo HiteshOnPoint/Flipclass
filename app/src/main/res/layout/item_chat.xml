@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -59,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
+                <com.ops.flipclass.view.FCTextView
                     android:id="@+id/tv_firstName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -67,17 +68,19 @@
                     android:text="Akshay Devikar"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:textStyle="@integer/Poppins_Medium" />
 
-                <TextView
+                <com.ops.flipclass.view.FCTextView
                     android:id="@+id/tv_timeAgo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="20dp"
                     android:text="3 min Ago"
-                    android:textColor="#1D2939"
-                    android:textSize="13sp" />
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="13sp"
+                    app:textStyle="@integer/Poppins_Regular" />
 
             </RelativeLayout>
 
@@ -87,14 +90,15 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
-                <TextView
+                <com.ops.flipclass.view.FCTextView
                     android:id="@+id/tv_lastMessage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:text=""
                     android:textColor="@android:color/holo_blue_light"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:textStyle="@integer/Poppins_Regular" />
 
                 <LinearLayout
                     android:id="@+id/llMessageCount"
@@ -102,7 +106,8 @@
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/notification_count_badge_background"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:visibility="invisible">
 
                     <TextView
                         android:id="@+id/tv_messageCount"

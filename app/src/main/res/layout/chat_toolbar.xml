@@ -20,9 +20,9 @@
         <ImageView
             android:id="@+id/imgLogo"
             android:layout_width="6dp"
-            android:layout_height="11dp"
+            android:layout_height="10dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_back_button"/>
+            android:src="@drawable/ic_back_button" />
 
     </LinearLayout>
 
@@ -70,23 +70,25 @@
         android:orientation="vertical"
         android:gravity="center|start">
 
-        <TextView
+        <com.ops.flipclass.view.FCTextView
             android:id="@+id/tvToolbarTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="17sp"
             android:text=""
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            app:textStyle="@integer/Poppins_Medium"/>
 
-        <TextView
+        <com.ops.flipclass.view.FCTextView
             android:id="@+id/tv_lastSeen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#9A9898"
+            android:textColor="@android:color/darker_gray"
             android:textSize="11sp"
             android:text=" "
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            app:textStyle="@integer/Poppins_Regular"/>
 
     </LinearLayout>
 

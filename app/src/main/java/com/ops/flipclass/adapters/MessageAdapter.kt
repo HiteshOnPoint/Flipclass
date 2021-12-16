@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.ops.flipclass.R
 import com.ops.flipclass.models.Message
+import com.ops.flipclass.view.FCTextView
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -96,12 +97,12 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>) 
     }
 
     class SentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val sentMessage = itemView.findViewById<TextView>(R.id.tv_sentMessage)
-        val sentMessageTime = itemView.findViewById<TextView>(R.id.tv_sentMessageTime)
+        val sentMessage = itemView.findViewById<FCTextView>(R.id.tv_sentMessage)
+        val sentMessageTime = itemView.findViewById<FCTextView>(R.id.tv_sentMessageTime)
     }
 
     class ReceiveViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val receivedMessage = itemView.findViewById<TextView>(R.id.tv_receivedMessage)
-        val receivedMessageTime = itemView.findViewById<TextView>(R.id.tv_receivedMessageTime)
+        val receivedMessage = itemView.findViewById<FCTextView>(R.id.tv_receivedMessage)
+        val receivedMessageTime = itemView.findViewById<FCTextView>(R.id.tv_receivedMessageTime)
     }
 }

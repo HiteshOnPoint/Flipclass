@@ -10,7 +10,7 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <TextView
+    <com.ops.flipclass.view.FCTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -18,7 +18,8 @@
         android:layout_marginEnd="40dp"
         android:text="Welcome to"
         android:textSize="28sp"
-        android:textColor="#333333"/>
+        android:textColor="#333333"
+        app:textStyle="@integer/Poppins_Regular"/>
 
     <ImageView
         android:layout_width="218dp"
@@ -60,7 +61,7 @@
                     android:layout_marginTop="10dp"
                     android:src="@drawable/ic_instructor_image" />
 
-                <TextView
+                <com.ops.flipclass.view.FCTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="70dp"
@@ -69,7 +70,7 @@
                     android:text="Instructor"
                     android:textColor="#333333"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    app:textStyle="@integer/Poppins_Medium" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -98,7 +99,7 @@
                             android:layout_marginStart="6dp"
                             android:src="@drawable/google_logo" />
 
-                        <TextView
+                        <com.ops.flipclass.view.FCTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="30dp"
@@ -106,7 +107,7 @@
                             android:text="Sign in with Google"
                             android:textColor="#333333"
                             android:textSize="15sp"
-                            android:textStyle="bold" />
+                            app:textStyle="@integer/Poppins_Medium" />
 
                     </LinearLayout>
 
@@ -140,7 +141,7 @@
                     android:layout_marginStart="20dp"
                     android:src="@drawable/ic_student_image" />
 
-                <TextView
+                <com.ops.flipclass.view.FCTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="70dp"
@@ -149,7 +150,8 @@
                     android:text="Student"
                     android:textColor="#333333"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:textStyle="@integer/Poppins_Medium" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -176,7 +178,7 @@
                             android:layout_marginStart="6dp"
                             android:src="@drawable/google_logo" />
 
-                        <TextView
+                        <com.ops.flipclass.view.FCTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="30dp"
@@ -184,7 +186,7 @@
                             android:text="Sign in with Google"
                             android:textColor="#333333"
                             android:textSize="15sp"
-                            android:textStyle="bold" />
+                            app:textStyle="@integer/Poppins_Medium" />
 
                     </LinearLayout>
 

@@ -47,7 +47,7 @@
 
             </LinearLayout>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:id="@+id/tv_userNameProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,9 +56,9 @@
                 android:text="Akshay Devikar"
                 android:textColor="#18212D"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                app:textStyle="@integer/Poppins_Medium" />
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:id="@+id/tv_userEmailProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +66,8 @@
                 android:gravity="center"
                 android:text="akshaydevikar@gmail.com"
                 android:textSize="13sp"
-                android:textColor="@android:color/darker_gray"/>
+                android:textColor="@android:color/darker_gray"
+                app:textStyle="@integer/Poppins_Regular"/>
 
             <LinearLayout
                 android:layout_width="88dp"
@@ -75,12 +76,13 @@
                 android:gravity="center"
                 android:background="@drawable/teacher_code_card_background">
 
-                <TextView
+                <com.ops.flipclass.view.FCTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TAD0115"
                     android:textColor="#4287FF"
-                    android:textSize="10sp"/>
+                    android:textSize="10sp"
+                    app:textStyle="@integer/Poppins_Medium"/>
 
             </LinearLayout>
 

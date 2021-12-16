@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/toolbar_three_background"
     android:paddingTop="40dp">
 
@@ -31,7 +32,7 @@
 
         </LinearLayout>
 
-        <TextView
+        <com.ops.flipclass.view.FCTextView
             android:id="@+id/tvToolbarTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -43,7 +44,8 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:textStyle="@integer/Poppins_Medium" />
 
         <LinearLayout
             android:layout_width="60dp"

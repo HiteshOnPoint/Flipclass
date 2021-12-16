@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ProfileDetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -28,16 +29,17 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_name_icon"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Name"
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:textStyle="@integer/Poppins_Medium"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:id="@+id/tv_userNameFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +47,8 @@
                 android:gravity="end"
                 android:text="Mike Patro"
                 android:textColor="#1D2939"
-                android:textSize="13sp"/>
+                android:textSize="13sp"
+                app:textStyle="@integer/Poppins_Regular"/>
 
         </LinearLayout>
 
@@ -61,16 +64,17 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_email_icon"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Email"
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:textStyle="@integer/Poppins_Medium"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:id="@+id/tv_userEmailFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,7 +82,8 @@
                 android:gravity="end"
                 android:text="mikepatrol123@gmail.com"
                 android:textColor="#1D2939"
-                android:textSize="13sp"/>
+                android:textSize="13sp"
+                app:textStyle="@integer/Poppins_Regular"/>
 
         </LinearLayout>
 
@@ -94,23 +99,25 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_calendar_icon"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Date of Birth"
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:textStyle="@integer/Poppins_Medium"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:gravity="end"
                 android:text="1968-11-19"
                 android:textColor="#1D2939"
-                android:textSize="13sp"/>
+                android:textSize="13sp"
+                app:textStyle="@integer/Poppins_Regular"/>
 
         </LinearLayout>
 
@@ -126,23 +133,25 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_location_icon"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Address"
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:textStyle="@integer/Poppins_Medium"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:gravity="end"
                 android:text="727 Parkway BIvd"
                 android:textColor="#1D2939"
-                android:textSize="13sp"/>
+                android:textSize="13sp"
+                app:textStyle="@integer/Poppins_Regular"/>
 
         </LinearLayout>
 
@@ -158,23 +167,25 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_city_icon"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="City"
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:textStyle="@integer/Poppins_Medium"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:gravity="end"
                 android:text="Coppell"
                 android:textColor="#1D2939"
-                android:textSize="13sp"/>
+                android:textSize="13sp"
+                app:textStyle="@integer/Poppins_Regular"/>
 
         </LinearLayout>
 
@@ -190,23 +201,25 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_state_icon"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="State"
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:textStyle="@integer/Poppins_Medium"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:gravity="end"
                 android:text="Texas"
                 android:textColor="#1D2939"
-                android:textSize="13sp"/>
+                android:textSize="13sp"
+                app:textStyle="@integer/Poppins_Regular"/>
 
         </LinearLayout>
 
@@ -222,23 +235,25 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_zip_icon" />
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Zip"
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:textStyle="@integer/Poppins_Medium"/>
 
-            <TextView
+            <com.ops.flipclass.view.FCTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:gravity="end"
                 android:text="75019"
                 android:textColor="#1D2939"
-                android:textSize="13sp"/>
+                android:textSize="13sp"
+                app:textStyle="@integer/Poppins_Regular"/>
 
         </LinearLayout>
 
