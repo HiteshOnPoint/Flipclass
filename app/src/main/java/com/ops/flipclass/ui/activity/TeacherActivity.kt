@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -36,6 +37,12 @@ class TeacherActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
             )
         }*/
+        
+        tv_hello.visibility = View.VISIBLE
+        tv_loggedInUserName.visibility = View.VISIBLE
+        civ_loggedInUserImage.visibility = View.VISIBLE
+
+
 
         mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
         editor = mSharedPreferences.edit()
@@ -65,9 +72,9 @@ class TeacherActivity : AppCompatActivity() {
             editor.putString("userPhoto", (userPhoto).toString())
             editor.apply()
 
-            tv_userName.text = mSharedPreferences.getString("userName", "Error")
+            tv_loggedInUserName.text = mSharedPreferences.getString("userName", "Error")
             val photo = mSharedPreferences.getString("userPhoto", "Error")
-            Glide.with(this).load((photo).toString()).into(civ_user_image)
+            Glide.with(this).load((photo).toString()).into(civ_loggedInUserImage)
         }
 
         mAuth = FirebaseAuth.getInstance()
@@ -91,7 +98,7 @@ class TeacherActivity : AppCompatActivity() {
             startActivity(Intent(this@TeacherActivity, MessageActivity::class.java))
         }
 
-        llUserImage.setOnClickListener {
+        civ_loggedInUserImage.setOnClickListener {
             startActivity(Intent(this@TeacherActivity, MyProfileActivity::class.java))
         }
 

@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -17,9 +18,9 @@ import com.ops.flipclass.adapters.UsersAdapter
 import com.ops.flipclass.models.ListUsersModel
 import com.ops.flipclass.models.User
 import kotlinx.android.synthetic.main.activity_message.*
+import kotlinx.android.synthetic.main.app_toolbar.*
 import kotlinx.android.synthetic.main.app_toolbar_one.*
 import kotlinx.android.synthetic.main.app_toolbar_one.llBackButton
-import kotlinx.android.synthetic.main.app_toolbar_one.tvToolbarTitle
 import java.io.InputStream
 import java.lang.Exception
 
@@ -47,14 +48,18 @@ class MessageActivity : AppCompatActivity() {
             )
         }*/
 
+        civ_backButton.visibility = View.VISIBLE
+        tvToolbarTitle.visibility = View.VISIBLE
+        civ_loggedInUserImage.visibility = View.VISIBLE
+
         mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
         editor = mSharedPreferences.edit()
 
         tvToolbarTitle.text = "Messages"
         val photo = mSharedPreferences.getString("userPhoto", "Error")
-        Glide.with(this).load((photo).toString()).into(civ_user_image_Message)
+        Glide.with(this).load((photo).toString()).into(civ_loggedInUserImage)
 
-        llBackButton.setOnClickListener {
+        civ_backButton.setOnClickListener {
             onBackPressed()
         }
 

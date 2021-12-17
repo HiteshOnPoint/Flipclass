@@ -27,7 +27,6 @@
     </LinearLayout>
 
     <com.ops.flipclass.view.FCTextView
-        android:id="@+id/tvToolbarTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

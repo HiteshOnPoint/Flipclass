@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:background="#FFFFFF"
+    android:background="#00000000"
     android:paddingStart="30dp"
     android:paddingEnd="30dp"
-    android:orientation="horizontal"
-    android:layout_marginTop="30dp"
-    android:layout_marginBottom="5dp">
+    android:orientation="horizontal">
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="0.8"
@@ -41,25 +39,159 @@
             android:maxLines="1"
             app:textStyle="@integer/Poppins_Medium"/>
 
-    </LinearLayout>
+    </LinearLayout>-->
 
-    <LinearLayout
-        android:id="@+id/llUserImage"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"
-        android:orientation="vertical"
-        android:gravity="center">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_backButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/transparent_back_button"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"/>
+
+
+    <com.ops.flipclass.view.FCTextView
+        android:id="@+id/tvToolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="10dp"
+        android:gravity="center|start"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:visibility="invisible"
+        app:textStyle="@integer/Poppins_Medium" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_loggedInUserImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_user_icon"
+        android:visibility="invisible"/>
+
+    <com.ops.flipclass.view.FCTextView
+        android:id="@+id/tv_hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello!"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="23sp"
+        app:textStyle="@integer/Poppins_Medium"
+        android:visibility="invisible"/>
+
+    <com.ops.flipclass.view.FCTextView
+        android:id="@+id/tv_loggedInUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="AyAy"
+        android:textColor="#333333"
+        android:textSize="30sp"
+        android:layout_alignParentBottom="true"
+        app:textStyle="@integer/Poppins_Medium"
+        android:visibility="invisible"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_backButtonSmall"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/transparent_back_button"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"/>
+
+    <FrameLayout
+        android:id="@+id/fl_chatUserImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/civ_backButtonSmall"
+        android:layout_marginStart="15dp"
+        android:visibility="invisible">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/civ_user_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:id="@+id/civ_chatUserImage"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_user_icon"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"/>
+            android:src="@drawable/ic_user_icon"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_onlineBadge"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="top|right"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/badge_ellipse_green"
+            android:visibility="gone"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_offlineBadge"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="top|right"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/badge_ellipse_grey" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_chatUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/fl_chatUserImage"
+        android:layout_toStartOf="@id/civ_info"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:gravity="center|start"
+        android:visibility="invisible">
+
+        <com.ops.flipclass.view.FCTextView
+            android:id="@+id/tv_chatUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:text=""
+            android:textStyle="bold"
+            app:textStyle="@integer/Poppins_Medium"/>
+
+        <com.ops.flipclass.view.FCTextView
+            android:id="@+id/tv_lastSeen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="11sp"
+            android:text=" "
+            android:textAlignment="center"
+            app:textStyle="@integer/Poppins_Regular"/>
 
     </LinearLayout>
 
-</LinearLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_info"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_info_icon"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

@@ -2,10 +2,12 @@ package com.ops.flipclass.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ops.flipclass.R
@@ -13,9 +15,9 @@ import com.ops.flipclass.adapters.MessageAdapter
 import com.ops.flipclass.models.Message
 import com.ops.flipclass.view.FCEditText
 import kotlinx.android.synthetic.main.activity_chat.*
+import kotlinx.android.synthetic.main.app_toolbar.*
 import kotlinx.android.synthetic.main.app_toolbar_one.*
 import kotlinx.android.synthetic.main.app_toolbar_one.llBackButton
-import kotlinx.android.synthetic.main.app_toolbar_one.tvToolbarTitle
 import kotlinx.android.synthetic.main.app_toolbar_two.*
 import kotlinx.android.synthetic.main.chat_toolbar.*
 
@@ -43,17 +45,23 @@ class ChatActivity : AppCompatActivity() {
             )
         }*/
 
+        civ_backButtonSmall.visibility = View.VISIBLE
+        fl_chatUserImage.visibility = View.VISIBLE
+        ll_chatUser.visibility = View.VISIBLE
+        civ_info.visibility = View.VISIBLE
 
         val name = intent.getStringExtra("name")
         val receiverUid = intent.getStringExtra("uid")
+
+        tv_chatUserName.text = name
+        val photo = intent.getStringExtra("photo")
+        Glide.with(this).load(photo).into(civ_chatUserImage)
 
         val senderUid = FirebaseAuth.getInstance().currentUser?.uid
         mDbRef = FirebaseDatabase.getInstance("https://flipclass-d87e8-default-rtdb.firebaseio.com/").reference
 
         senderRoom = receiverUid + senderUid
         receiverRoom =  senderUid + receiverUid
-
-        tvToolbarTitle.text = name
 
         chatRecyclerview = findViewById(R.id.rv_chat)
         messageBox = findViewById(R.id.et_typeMessage)
@@ -109,7 +117,7 @@ class ChatActivity : AppCompatActivity() {
 
         }
 
-        llBackButton.setOnClickListener {
+        civ_backButtonSmall.setOnClickListener {
             onBackPressed()
         }
 

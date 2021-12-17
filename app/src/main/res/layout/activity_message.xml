@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:paddingTop="30dp"
     android:orientation="vertical"
     tools:context=".ui.activity.MessageActivity">
 
-    <include layout="@layout/app_toolbar_one" />
+    <include layout="@layout/app_toolbar" />
 
     <FrameLayout
         android:layout_width="match_parent"

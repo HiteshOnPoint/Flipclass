@@ -1,6 +1,7 @@
 package com.ops.flipclass.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.ops.flipclass.R
 import com.ops.flipclass.models.User
+import com.ops.flipclass.ui.activity.ChatActivity
 import de.hdodenhof.circleimageview.CircleImageView
 import java.text.SimpleDateFormat
 import java.util.*
@@ -71,20 +73,22 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
                 }
             })
 
-        if (currentUser.status.equals("online")){
+        /*if (currentUser.status.equals("online")){
             holder.imgOnline.visibility = View.VISIBLE
             holder.imgOffline.visibility = View.GONE
         }else{
             holder.imgOnline.visibility = View.GONE
             holder.imgOffline.visibility = View.VISIBLE
-        }
-        holder.item_container.setOnClickListener {
-            /*val intent = Intent(context, ChatActivity::class.java)
+        }*/
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, ChatActivity::class.java)
             intent.putExtra("name", currentUser.name)
             intent.putExtra("uid", currentUser.uid)
-            context.startActivity(intent)*/
-            Toast.makeText(context,"name:"+currentUser.name+"\n\n"+"Uid"+currentUser.uid,Toast.LENGTH_LONG).show()
-            Log.e("1122","name:"+currentUser.name+"\nUid"+currentUser.uid+"\nPos"+position+"\n\n")
+            intent.putExtra("photo", currentUser.photo)
+            context.startActivity(intent)
+            /*Toast.makeText(context,"name:"+currentUser.name+"\n\n"+"Uid"+currentUser.uid,Toast.LENGTH_LONG).show()
+            Log.e("1122","name:"+currentUser.name+"\nUid"+currentUser.uid+"\nPos"+position+"\n\n")*/
         }
 
     }
