@@ -1,7 +1,8 @@
-package com.ops.flipclass
+package com.ops.flipclass.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ops.flipclass.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

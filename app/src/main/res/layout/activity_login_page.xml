@@ -8,7 +8,7 @@
     android:gravity="center"
     android:padding="20dp"
     android:background="#FFFFFF"
-    tools:context=".LoginPageActivity">
+    tools:context=".ui.activity.LoginPageActivity">
 
     <EditText
         android:id="@+id/et_Email"

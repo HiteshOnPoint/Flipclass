@@ -2,9 +2,53 @@
 <resources>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_700">#ffffff</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#00D2F2</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="themeAppBg">#ffffff</color>
+    <color name="themeToolbarBg">#F4F4F4</color>
+    <color name="dividerColor">#DFDFDF</color>
+    <color name="themeCardBg">#FFFFFF</color>
+    <color name="themeGrayBg">#F8F7F5</color>
+    <color name="grey_800">#424242</color>
+    <color name="grey_700">#616161</color>
+    <color name="grey_600">#757575</color>
+    <color name="primaryTextColor">#2B2B2B</color>
+    <color name="secondaryTextColor">#4C4C4C</color>
+    <color name="optionalTextColor">#4C4C4C</color>
+    <color name="chipBorderColor">#4C4C4C</color>
+    <color name="lightTextColor">#BFBFBF</color>
+    <color name="smallTextColor">#F3F1ED</color>
+    <color name="goldenTextColor">#B19855</color>
+    <color name="textColor">#ffffff</color>
+    <color name="editTextBg">#F3F1ED</color>
+    <color name="errorColor">#E61014</color>
+    <color name="editTextHintColor">#BFBFBF</color>
+    <color name="editTextColor">#ffffff</color>
+    <color name="disabledColor">#4C4C4C</color>
+    <color name="editTextLine">#BFBFBF</color>
+    <color name="lineColor">#BFBFBF</color>
+    <color name="transparentBg">#A6000000</color>
+    <color name="quickViewBg">#F3F1ED</color>
+    <color name="calenderBg">#F3F1ED</color>
+    <color name="tabStripNormal">#E7E7E5</color>
+    <color name="tabStripSelected">#B19855</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="red">#E61014</color>
+    <color name="green">#459655</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="black">#1B1919</color>
+    <color name="bhue">#2196F3</color>
+    <color name="colorGold">#B19855</color>
+    <color name="dialogBg">#F3F1ED</color>
+    <color name="semi_transparent">#80000000</color>
+
+    <color name="chat_label_color">#5CFFFFFF</color>
 </resources>

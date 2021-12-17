@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-10dp"
-            android:text="AAAAAy"
+            android:text=""
             android:textColor="#333333"
             android:textSize="30sp"
             android:ellipsize="end"

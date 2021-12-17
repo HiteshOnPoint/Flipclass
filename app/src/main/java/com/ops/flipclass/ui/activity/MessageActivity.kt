@@ -1,29 +1,25 @@
-package com.ops.flipclass
+package com.ops.flipclass.ui.activity
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Window
-import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.gson.Gson
+import com.ops.flipclass.R
 import com.ops.flipclass.adapters.UserAdapter
 import com.ops.flipclass.adapters.UsersAdapter
 import com.ops.flipclass.models.ListUsersModel
 import com.ops.flipclass.models.User
 import kotlinx.android.synthetic.main.activity_message.*
-import kotlinx.android.synthetic.main.app_toolbar.*
 import kotlinx.android.synthetic.main.app_toolbar_one.*
 import kotlinx.android.synthetic.main.app_toolbar_one.llBackButton
 import kotlinx.android.synthetic.main.app_toolbar_one.tvToolbarTitle
-import kotlinx.android.synthetic.main.app_toolbar_two.*
 import java.io.InputStream
 import java.lang.Exception
 
@@ -43,13 +39,13 @@ class MessageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_message)
 
         mAuth = FirebaseAuth.getInstance()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val w: Window = window
             w.setFlags(
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
             )
-        }
+        }*/
 
         mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
         editor = mSharedPreferences.edit()

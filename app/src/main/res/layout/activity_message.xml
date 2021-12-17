@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     android:paddingTop="30dp"
     android:orientation="vertical"
-    tools:context=".MessageActivity">
+    tools:context=".ui.activity.MessageActivity">
 
     <include layout="@layout/app_toolbar_one" />
 

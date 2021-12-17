@@ -8,7 +8,7 @@
     android:background="#FFFFFF"
     android:paddingTop="30dp"
     android:gravity="center_horizontal"
-    tools:context=".MessagesActivity">
+    tools:context=".ui.activity.MessagesActivity">
 
     <include layout="@layout/app_toolbar_one" />
 

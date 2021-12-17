@@ -1,12 +1,13 @@
 package com.ops.flipclass.adapters
 
 import android.content.Context
-import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -14,14 +15,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.ops.flipclass.ChatActivity
 import com.ops.flipclass.R
 import com.ops.flipclass.models.User
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.app_toolbar_one.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class UserAdapter(val context: Context, val userList: ArrayList<User>):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
@@ -29,13 +27,20 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         var itemView = LayoutInflater.from(context).inflate(R.layout.item_chat, parent, false)
-        return UserAdapter.UserViewHolder(itemView)
+        /*val position = holder.item_container.tag as Int
+        Log.e("1122",""+position)
+        val currentUser = userList[position]*/
+        /*holder.item_container.setOnClickListener {
+            val intent = Intent(context, ChatActivity::class.java)
+            intent.putExtra("name", currentUser.name)
+            intent.putExtra("uid", currentUser.uid)
+            context.startActivity(intent)
+        }*/
+        return UserViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-
         val currentUser = userList[position]
-
         holder.textName.text = currentUser.name
         Glide.with(holder.itemView.context).load(currentUser.photo).into(holder.imgPhoto)
 
@@ -66,20 +71,20 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
                 }
             })
 
-        holder.itemView.setOnClickListener {
-            val intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("name", currentUser.name)
-            intent.putExtra("uid", currentUser.uid)
-
-            context.startActivity(intent)
-        }
-
         if (currentUser.status.equals("online")){
             holder.imgOnline.visibility = View.VISIBLE
             holder.imgOffline.visibility = View.GONE
         }else{
             holder.imgOnline.visibility = View.GONE
             holder.imgOffline.visibility = View.VISIBLE
+        }
+        holder.item_container.setOnClickListener {
+            /*val intent = Intent(context, ChatActivity::class.java)
+            intent.putExtra("name", currentUser.name)
+            intent.putExtra("uid", currentUser.uid)
+            context.startActivity(intent)*/
+            Toast.makeText(context,"name:"+currentUser.name+"\n\n"+"Uid"+currentUser.uid,Toast.LENGTH_LONG).show()
+            Log.e("1122","name:"+currentUser.name+"\nUid"+currentUser.uid+"\nPos"+position+"\n\n")
         }
 
     }
@@ -95,6 +100,7 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
         val imgPhoto = itemView.findViewById<CircleImageView>(R.id.civ_user_image_chat)
         val textLastMessage = itemView.findViewById<TextView>(R.id.tv_lastMessage)
         val textLastMessageTime = itemView.findViewById<TextView>(R.id.tv_timeAgo)
+        val item_container = itemView.findViewById<LinearLayout>(R.id.item_container)
 
     }
 }

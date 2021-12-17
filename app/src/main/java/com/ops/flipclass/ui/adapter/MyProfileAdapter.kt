@@ -1,9 +1,12 @@
-package com.ops.flipclass
+package com.ops.flipclass.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.ops.flipclass.ui.fragement.ExperienceFragment
+import com.ops.flipclass.ui.fragement.MyEducationFragment
+import com.ops.flipclass.ui.fragement.ProfileDetailsFragment
 
 class MyProfileAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle)
     : FragmentStateAdapter(fragmentManager, lifecycle) {

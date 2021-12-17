@@ -7,7 +7,7 @@
     xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    tools:context=".MyProfileActivity">
+    tools:context=".ui.activity.MyProfileActivity">
 
     <include layout="@layout/app_toolbar_two" />
 

@@ -1,21 +1,16 @@
-package com.ops.flipclass
+package com.ops.flipclass.ui.activity
 
 import android.content.SharedPreferences
-import android.graphics.Color
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.ops.flipclass.ui.adapter.MyProfileAdapter
+import com.ops.flipclass.R
 import kotlinx.android.synthetic.main.activity_my_profile.*
-import kotlinx.android.synthetic.main.app_toolbar.*
 import kotlinx.android.synthetic.main.app_toolbar_two.*
-import kotlinx.android.synthetic.main.fragment_profile_details.*
 
 class MyProfileActivity : AppCompatActivity() {
 
@@ -26,13 +21,13 @@ class MyProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val w: Window = window
             w.setFlags(
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
             )
-        }
+        }*/
 
         mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
         editor = mSharedPreferences.edit()

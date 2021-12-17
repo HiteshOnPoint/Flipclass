@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Flipclass</string>
+    <string name="app_name">FlipClass</string>
     <string name="no_message_description">You don’t have any messages. You can send a\nmessage by searching for the instructor and clicking\non the send message link when you mouse over the\ninstructor’s image.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

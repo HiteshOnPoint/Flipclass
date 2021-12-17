@@ -13,35 +13,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Flipclass">
         <activity
-            android:name=".ChatActivity"
+            android:name=".ui.activity.ChatActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".UserListActivity"
+            android:name=".ui.activity.UserListActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpPageActivity"
+            android:name=".ui.activity.SignUpPageActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".LoginPageActivity"
+            android:name=".ui.activity.LoginPageActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".MessageActivity"
+            android:name=".ui.activity.MessageActivity"
             android:exported="false" />
         <activity
-            android:name=".MyProfileActivity"
+            android:name=".ui.activity.MyProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MessagesActivity"
+            android:name=".ui.activity.MessagesActivity"
             android:exported="false" />
         <activity
-            android:name=".TeacherActivity"
+            android:name=".ui.activity.TeacherActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,8 +49,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true" />
     </application>
-
 </manifest>

@@ -1,0 +1,71 @@
+<resources>
+    <!-- Default screen margins,
+     per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">@dimen/_16sdp</dimen>
+    <dimen name="activity_vertical_margin">@dimen/_16sdp</dimen>
+    <dimen name="nav_header_vertical_spacing">@dimen/_8sdp</dimen>
+    <dimen name="fab_margin">@dimen/_16sdp</dimen>
+
+    <dimen name="text_size_toolbar">@dimen/_16ssp</dimen>
+    <dimen name="text_size_h1">@dimen/_18ssp</dimen>
+    <dimen name="text_size_header">@dimen/_14ssp</dimen>
+    <dimen name="text_size_medium">@dimen/_12ssp</dimen>
+    <dimen name="text_size_normal">@dimen/_10ssp</dimen>
+    <dimen name="text_size_small">@dimen/_9ssp</dimen>
+    <dimen name="line_spacing">@dimen/_2sdp</dimen>
+
+    <dimen name="normal_padding">@dimen/_10sdp</dimen>
+    <dimen name="normal_padding_half">@dimen/_5sdp</dimen>
+    <dimen name="arrow_icon_size">@dimen/_14sdp</dimen>
+    <dimen name="small_padding">@dimen/_2sdp</dimen>
+    <dimen name="app_margin">@dimen/_16sdp</dimen>
+    <dimen name="app_margin_half">@dimen/_8sdp</dimen>
+    <dimen name="app_padding">@dimen/_16sdp</dimen>
+    <dimen name="mid_margin">@dimen/_25sdp</dimen>
+    <dimen name="big_margin">@dimen/_30sdp</dimen>
+    <dimen name="bigger_margin">@dimen/_50sdp</dimen>
+    <dimen name="tinder_card_bottom_margin">@dimen/_90sdp</dimen>
+    <dimen name="normal_margin">@dimen/_10sdp</dimen>
+    <dimen name="normal_margin_half">@dimen/_5sdp</dimen>
+    <dimen name="grid_spacing">@dimen/_3sdp</dimen>
+    <dimen name="small_margin">@dimen/_2sdp</dimen>
+    <dimen name="card_padding">@dimen/_12sdp</dimen>
+    <dimen name="card_padding_half">@dimen/_6sdp</dimen>
+    <dimen name="divider_thickness">@dimen/_1sdp</dimen>
+    <dimen name="edit_text_height">@dimen/_35sdp</dimen>
+    <dimen name="button_height">@dimen/_36sdp</dimen>
+    <dimen name="icon_size">@dimen/_24sdp</dimen>
+    <dimen name="drawer_icon_size">@dimen/_40sdp</dimen>
+    <dimen name="small_icon_size">@dimen/_16sdp</dimen>
+    <dimen name="plus_dec_size">@dimen/_12sdp</dimen>
+    <dimen name="line_width">@dimen/_55sdp</dimen>
+    <dimen name="walk_through_image_size">@dimen/_250sdp</dimen>
+
+    <dimen name="toolbar_height">@dimen/_56sdp</dimen>
+    <dimen name="toolbar_inner_image_size">@dimen/_20sdp</dimen>
+    <dimen name="toolbar_burger_menu_size">@dimen/_30sdp</dimen>
+    <dimen name="toolbar_image_size">@dimen/_24sdp</dimen>
+    <dimen name="image_size">@dimen/_36sdp</dimen>
+    <dimen name="tinder_image_size">@dimen/_40sdp</dimen>
+    <dimen name="strip_size">@dimen/_25sdp</dimen>
+    <dimen name="strip_icon_size">@dimen/_20sdp</dimen>
+    <dimen name="menu_icon_size">@dimen/_30sdp</dimen>
+    <dimen name="toolbar_stroke">@dimen/_1sdp</dimen>
+    <dimen name="big_image_size">@dimen/_80sdp</dimen>
+    <dimen name="mid_image_size">@dimen/_60sdp</dimen>
+    <dimen name="item_inner_image_size">@dimen/_50sdp</dimen>
+    <dimen name="appbar_padding">@dimen/_16sdp</dimen>
+    <dimen name="appbar_padding_top">@dimen/_8sdp</dimen>
+    <dimen name="nav_header_height">@dimen/_176sdp</dimen>
+    <dimen name="chip_spacing_horizontal">@dimen/_7sdp</dimen>
+    <dimen name="chip_spacing_vertical">@dimen/_minus5sdp</dimen>
+    <dimen name="chip_border_width">@dimen/_1sdp</dimen>
+    <dimen name="card_padding_half_minus">@dimen/_minus6sdp</dimen>
+    <dimen name="card_padding_minus">@dimen/_minus12sdp</dimen>
+    <dimen name="my_cart_overlap_margin">@dimen/_116sdp
+    </dimen> <!-- @dimen/_minus57sdp  | hdpi => -120 | xhdpi ->  -->
+    <dimen name="button_overlap_padding">@dimen/_76sdp</dimen>
+    <dimen name="login_page_text_size">@dimen/_11ssp</dimen>
+
+    <dimen name="card_corner_radius">5dp</dimen>
+</resources>
