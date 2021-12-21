@@ -13,6 +13,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ops.flipclass.R
+import com.ops.flipclass.utilities.Infrastructure
+import com.ops.flipclass.utilities.SharedPrefsUtils
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_teacher.*
 import kotlinx.android.synthetic.main.app_toolbar.*
@@ -23,8 +25,6 @@ class TeacherActivity : AppCompatActivity() {
     private lateinit var mDbRef: DatabaseReference
     private lateinit var mGoogleSignInClient: GoogleSignInClient
 
-    private lateinit var mSharedPreferences: SharedPreferences
-    private lateinit var editor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +44,8 @@ class TeacherActivity : AppCompatActivity() {
 
 
 
-        mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
-        editor = mSharedPreferences.edit()
+        /*mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
+        editor = mSharedPreferences.edit()*/
 
         /*val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
@@ -64,18 +64,19 @@ class TeacherActivity : AppCompatActivity() {
             val userPhoto: Uri? = acct.photoUrl
 
 
-            editor.putString("userName", userName)
-            editor.putString("userGivenName", userGivenName)
-            editor.putString("userFamilyName", userFamilyName)
-            editor.putString("userEmail", userEmail)
-            editor.putString("userId", userId)
-            editor.putString("userPhoto", (userPhoto).toString())
-            editor.apply()
+            SharedPrefsUtils.setStringPreference(this,"userName", userName)
+            SharedPrefsUtils.setStringPreference(this,"userGivenName", userGivenName)
+            SharedPrefsUtils.setStringPreference(this,"userFamilyName", userFamilyName)
+            SharedPrefsUtils.setStringPreference(this,"userEmail", userEmail)
+            SharedPrefsUtils.setStringPreference(this,"userId", userId)
+            SharedPrefsUtils.setStringPreference(this,"userPhoto", (userPhoto).toString())
 
-            tv_loggedInUserName.text = mSharedPreferences.getString("userName", "Error")
-            val photo = mSharedPreferences.getString("userPhoto", "Error")
-            Glide.with(this).load((photo).toString()).into(civ_loggedInUserImage)
+            tv_loggedInUserName.text = SharedPrefsUtils.getStringPreference(this,"userName")
+            val photo = SharedPrefsUtils.getStringPreference(this,"userPhoto")
+            Glide.with(this).load(photo).into(civ_loggedInUserImage)
         }
+
+        Infrastructure.dismissProgressDialog()
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -119,15 +120,11 @@ class TeacherActivity : AppCompatActivity() {
                 })*/
 
             mAuth.signOut()
-            val intent = Intent(
-                this@TeacherActivity,
-                LoginActivity::class.java
-            )/*setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)*/
-            editor.clear()
-            editor.apply()
-            Toast.makeText(this@TeacherActivity, "Signed Out Successfully", Toast.LENGTH_SHORT)
-                .show()
+            SharedPrefsUtils.clearSharedPreference(this@TeacherActivity)
+            val intent = Intent(this@TeacherActivity, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
+            Toast.makeText(this@TeacherActivity, "Signed Out Successfully", Toast.LENGTH_SHORT).show()
             finish()
         }
     }

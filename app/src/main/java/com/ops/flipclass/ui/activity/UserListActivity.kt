@@ -11,7 +11,7 @@ import com.ops.flipclass.adapters.UserAdapter
 import com.ops.flipclass.models.User
 import com.ops.flipclass.utilities.Infrastructure
 
-class UserListActivity : AppCompatActivity() {
+class UserListActivity : AppCompatActivity(), UserAdapter.OnItemClickListener {
 
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userList: ArrayList<User>
@@ -32,7 +32,7 @@ class UserListActivity : AppCompatActivity() {
             )
         }*/
         userList = ArrayList()
-        adapter = UserAdapter(this, userList)
+        adapter = UserAdapter(this, userList, this)
 
         userRecyclerView = findViewById(R.id.rv_users)
 
@@ -62,5 +62,9 @@ class UserListActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    override fun onItemClick(position: Int) {
+        //TODO("Not yet implemented")
     }
 }

@@ -1,11 +1,13 @@
 package com.ops.flipclass.ui.activity
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -17,6 +19,8 @@ import com.ops.flipclass.adapters.UserAdapter
 import com.ops.flipclass.adapters.UsersAdapter
 import com.ops.flipclass.models.ListUsersModel
 import com.ops.flipclass.models.User
+import com.ops.flipclass.utilities.Infrastructure
+import com.ops.flipclass.utilities.SharedPrefsUtils
 import kotlinx.android.synthetic.main.activity_message.*
 import kotlinx.android.synthetic.main.app_toolbar.*
 import kotlinx.android.synthetic.main.app_toolbar_one.*
@@ -24,7 +28,7 @@ import kotlinx.android.synthetic.main.app_toolbar_one.llBackButton
 import java.io.InputStream
 import java.lang.Exception
 
-class MessageActivity : AppCompatActivity() {
+class MessageActivity : AppCompatActivity(), UserAdapter.OnItemClickListener {
 
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userList: ArrayList<User>
@@ -39,6 +43,8 @@ class MessageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_message)
 
+        Infrastructure.showProgressDialog(this@MessageActivity)
+
         mAuth = FirebaseAuth.getInstance()
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val w: Window = window
@@ -52,19 +58,20 @@ class MessageActivity : AppCompatActivity() {
         tvToolbarTitle.visibility = View.VISIBLE
         civ_loggedInUserImage.visibility = View.VISIBLE
 
-        mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
-        editor = mSharedPreferences.edit()
-
         tvToolbarTitle.text = "Messages"
-        val photo = mSharedPreferences.getString("userPhoto", "Error")
+        val photo = SharedPrefsUtils.getStringPreference(this, "userPhoto")
         Glide.with(this).load((photo).toString()).into(civ_loggedInUserImage)
 
         civ_backButton.setOnClickListener {
             onBackPressed()
         }
 
+        civ_loggedInUserImage.setOnClickListener {
+            startActivity(Intent(this@MessageActivity, MyProfileActivity::class.java))
+        }
+
         userList = ArrayList()
-        adapter = UserAdapter(this, userList)
+        adapter = UserAdapter(this, userList, this)
 
         userRecyclerView = findViewById(R.id.rv_users)
 
@@ -87,6 +94,7 @@ class MessageActivity : AppCompatActivity() {
                     }
                 }
                 adapter.notifyDataSetChanged()
+                Infrastructure.dismissProgressDialog()
 
             }
 
@@ -95,6 +103,16 @@ class MessageActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(this@MessageActivity, "Item $position Clicked", Toast.LENGTH_SHORT).show()
+        val clickedItem = userList[position]
+        val intent = Intent(this@MessageActivity, ChatActivity::class.java)
+        intent.putExtra("name", clickedItem.name)
+        intent.putExtra("uid", clickedItem.uid)
+        intent.putExtra("photo", clickedItem.photo)
+        startActivity(intent)
     }
 
     /*private fun status (status: String){
@@ -179,4 +197,5 @@ class MessageActivity : AppCompatActivity() {
         }
         return null
     }
+
 }

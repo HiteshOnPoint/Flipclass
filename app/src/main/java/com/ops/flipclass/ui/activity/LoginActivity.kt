@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.ops.flipclass.R
 import com.ops.flipclass.models.User
+import com.ops.flipclass.utilities.Infrastructure
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.app_toolbar.*
 
@@ -42,6 +43,8 @@ class LoginActivity : AppCompatActivity() {
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         llSignInInstructor.setOnClickListener {
+
+            Infrastructure.showProgressDialog(this@LoginActivity)
             val signInIntent = mGoogleSignInClient.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
@@ -53,6 +56,8 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        Infrastructure.dismissProgressDialog()
+
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -60,6 +65,8 @@ class LoginActivity : AppCompatActivity() {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+
+                Infrastructure.showProgressDialog(this@LoginActivity)
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
@@ -93,6 +100,7 @@ class LoginActivity : AppCompatActivity() {
 
                 } else {
                     // If sign in fails, display a message to the user.
+                        Infrastructure.dismissProgressDialog()
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     Toast.makeText(this@LoginActivity, "Sign In Failed", Toast.LENGTH_SHORT).show()
                 }

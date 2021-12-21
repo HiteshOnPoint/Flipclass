@@ -14,11 +14,15 @@ import com.ops.flipclass.R
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.app_toolbar.*
 import kotlinx.android.synthetic.main.app_toolbar_two.*
+import android.view.WindowManager
+
+import android.os.Build
+import android.view.Window
+import com.ops.flipclass.utilities.SharedPrefsUtils
+
 
 class MyProfileActivity : AppCompatActivity() {
 
-    private lateinit var mSharedPreferences: SharedPreferences
-    private lateinit var editor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +36,9 @@ class MyProfileActivity : AppCompatActivity() {
             )
         }*/
 
-        window?.decorView?.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-        window.statusBarColor = Color.TRANSPARENT
+        val window: Window = window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = Color.parseColor("#4287FF")
 
         civ_backButton.visibility = View.VISIBLE
         tvToolbarTitle.visibility = View.VISIBLE
@@ -44,12 +48,9 @@ class MyProfileActivity : AppCompatActivity() {
         tvToolbarTitle.text = "My Profile"
         tvToolbarTitle.setTextColor(Color.parseColor("#FFFFFF"))
 
-        mSharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
-        editor = mSharedPreferences.edit()
-
-        tv_userNameProfile.text = mSharedPreferences.getString("userName", "Error")
-        tv_userEmailProfile.text = mSharedPreferences.getString("userEmail", "Error")
-        val photo = mSharedPreferences.getString("userPhoto", "Error")
+        tv_userNameProfile.text = SharedPrefsUtils.getStringPreference(this,"userName")
+        tv_userEmailProfile.text = SharedPrefsUtils.getStringPreference(this, "userEmail")
+        val photo = SharedPrefsUtils.getStringPreference(this,"userPhoto")
         Glide.with(this).load((photo).toString()).into(civ_loggedInUserImage)
         Glide.with(this).load((photo).toString()).into(civ_user_image_my_profile)
 

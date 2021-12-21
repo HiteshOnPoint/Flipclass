@@ -23,7 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 import java.text.SimpleDateFormat
 import java.util.*
 
-class UserAdapter(val context: Context, val userList: ArrayList<User>):
+class UserAdapter(val context: Context, val userList: ArrayList<User>, val listener: OnItemClickListener):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
 
@@ -73,6 +73,16 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
                 }
             })
 
+        /*holder.itemView.setOnClickListener {
+            val intent = Intent(context, ChatActivity::class.java)
+            intent.putExtra("name", currentUser.name)
+            intent.putExtra("uid", currentUser.uid)
+            intent.putExtra("photo", currentUser.photo)
+            context.startActivity(intent)
+            *//*Toast.makeText(context,"name:"+currentUser.name+"\n\n"+"Uid"+currentUser.uid,Toast.LENGTH_LONG).show()
+            Log.e("1122","name:"+currentUser.name+"\nUid"+currentUser.uid+"\nPos"+position+"\n\n")*//*
+        }*/
+
         /*if (currentUser.status.equals("online")){
             holder.imgOnline.visibility = View.VISIBLE
             holder.imgOffline.visibility = View.GONE
@@ -81,23 +91,14 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
             holder.imgOffline.visibility = View.VISIBLE
         }*/
 
-        holder.itemView.setOnClickListener {
-            val intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("name", currentUser.name)
-            intent.putExtra("uid", currentUser.uid)
-            intent.putExtra("photo", currentUser.photo)
-            context.startActivity(intent)
-            /*Toast.makeText(context,"name:"+currentUser.name+"\n\n"+"Uid"+currentUser.uid,Toast.LENGTH_LONG).show()
-            Log.e("1122","name:"+currentUser.name+"\nUid"+currentUser.uid+"\nPos"+position+"\n\n")*/
-        }
-
     }
 
     override fun getItemCount(): Int {
         return  userList.size
     }
 
-    class UserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class UserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
+
         val textName = itemView.findViewById<TextView>(R.id.tv_firstName)
         val imgOnline = itemView.findViewById<CircleImageView>(R.id.civ_onlineBadge)
         val imgOffline = itemView.findViewById<CircleImageView>(R.id.civ_offlineBadge)
@@ -106,5 +107,19 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
         val textLastMessageTime = itemView.findViewById<TextView>(R.id.tv_timeAgo)
         val item_container = itemView.findViewById<LinearLayout>(R.id.item_container)
 
+        init{
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position  = adapterPosition
+            if (position != RecyclerView.NO_POSITION)
+            listener.onItemClick(position)
+        }
+
+    }
+
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 }

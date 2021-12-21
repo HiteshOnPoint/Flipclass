@@ -14,26 +14,28 @@
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/drawable/search_bar_background.xml" value="0.21614583333333334" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/drawable/selected_tab_indicator.xml" value="0.21614583333333334" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/drawable/teacher_code_card_background.xml" value="0.21614583333333334" />
-        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_chat.xml" value="0.18" />
+        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_login_page.xml" value="0.17777777777777778" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_message.xml" value="0.17777777777777778" />
+        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_message.xml" value="0.22" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_messages.xml" value="0.25" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_my_profile.xml" value="0.2" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_sign_up_page.xml" value="0.17777777777777778" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_teacher.xml" value="0.2" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/activity_user_list.xml" value="0.17777777777777778" />
-        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/app_toolbar.xml" value="0.2" />
+        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/app_toolbar.xml" value="0.33" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/app_toolbar_one.xml" value="0.33" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/app_toolbar_two.xml" value="0.22" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/chat_toolbar.xml" value="0.33" />
-        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/fragment_my_education.xml" value="0.2" />
+        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/fragment_experience.xml" value="0.17777777777777778" />
+        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/fragment_my_education.xml" value="0.33" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/fragment_profile_details.xml" value="0.33" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/item_chat.xml" value="0.2" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/item_receive.xml" value="0.17777777777777778" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/item_received.xml" value="0.33" />
         <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/item_sent.xml" value="0.33" />
+        <entry key="..\:/Android Team/Hitesh/OPS/MainProjects/Flipclass_Android/Flipclass/app/src/main/res/layout/loader.xml" value="0.17777777777777778" />
       </map>
     </option>
   </component>
