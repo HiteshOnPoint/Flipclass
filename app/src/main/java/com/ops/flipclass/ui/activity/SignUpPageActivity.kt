@@ -10,7 +10,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.ops.flipclass.R
 import kotlinx.android.synthetic.main.activity_sign_up_page.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
+@InternalCoroutinesApi
 class SignUpPageActivity : AppCompatActivity() {
 
     private lateinit var etName: EditText

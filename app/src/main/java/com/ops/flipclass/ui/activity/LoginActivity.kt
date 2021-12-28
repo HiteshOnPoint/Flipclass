@@ -4,9 +4,14 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.provider.Settings
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -14,14 +19,26 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.gson.Gson
+import com.ops.flipclass.APiState
 import com.ops.flipclass.R
+import com.ops.flipclass.models.LoginResponse
 import com.ops.flipclass.models.User
+import com.ops.flipclass.ui.activity.authorization.viewmodel.LoginViewModel
 import com.ops.flipclass.utilities.Infrastructure
+import com.ops.flipclass.utilities.SharedPrefConstants
+import com.ops.flipclass.utilities.SharedPrefsUtils
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.app_toolbar.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.InternalCoroutinesApi
+import org.koin.android.viewmodel.ext.android.viewModel
 
-
+@ExperimentalCoroutinesApi
+@InternalCoroutinesApi
 class LoginActivity : AppCompatActivity() {
+
+    private val viewModel: LoginViewModel by viewModel()
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
@@ -49,8 +66,64 @@ class LoginActivity : AppCompatActivity() {
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
 
+        llSignInStudent.setOnClickListener{
+            executeLogin()
+        }
+
         //val account = GoogleSignIn.getLastSignedInAccount(this)
 
+        initObserver()
+
+    }
+
+    private fun initObserver() {
+        viewModel.loginHoldLiveData.observe(this, Observer { state ->
+            when (state) {
+                is APiState.Loading -> {
+                    Toast.makeText(applicationContext, "Loading...", Toast.LENGTH_LONG).show()
+
+                }
+                is APiState.Error -> {
+                    Toast.makeText(applicationContext, state.message, Toast.LENGTH_LONG).show()
+                }
+                is APiState.Success -> {
+                    val data = state.data
+                    Log.e(TAG, data.toString())
+                    if (data.status == "success") {
+                        if (data.clientData != null) {
+                            Toast.makeText(applicationContext, "Login Data Loaded.\n clientID: ${data.clientData?.clientId}\n timeZone: ${data.clientData?.timezone}", Toast.LENGTH_LONG).show()
+                        //loadLoginData(data)
+                        } else {
+                            Infrastructure.showToastMessage(this, data.message)
+                        }
+                    } else {
+                        Infrastructure.showToastMessage(this, data.message)
+                    }
+                }
+            }
+        })
+    }
+
+    private fun loadLoginData(data: LoginResponse) {
+        val gson = Gson()
+        val userData = gson.toJson(data)
+        SharedPrefsUtils.setStringPreference(this, SharedPrefConstants.USER_DETAILS, userData)
+        SharedPrefsUtils.setStringPreference(this, SharedPrefConstants.ACCESS_TOKEN,data.clientData?.accessToekn)
+        SharedPrefsUtils.setIntegerPreference(this, SharedPrefConstants.LOGIN_STATUS, 1)
+
+
+        Toast.makeText(applicationContext, "Login Data Loaded.\n clientID: ${data.clientData?.clientId}\n timeZone: ${data.clientData?.timezone}", Toast.LENGTH_LONG).show()
+
+    /*Handler().postDelayed({
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+        }, 1000)*/
+    }
+
+    private fun executeLogin() {
+        val deviceId = Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID)
+        viewModel.login(
+        )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

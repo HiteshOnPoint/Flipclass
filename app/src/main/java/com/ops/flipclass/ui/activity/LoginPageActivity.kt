@@ -15,8 +15,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 import com.ops.flipclass.R
+import kotlinx.coroutines.InternalCoroutinesApi
 
-
+@InternalCoroutinesApi
 class LoginPageActivity : AppCompatActivity() {
 
     private lateinit var etEmail: EditText

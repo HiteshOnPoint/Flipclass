@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ops.flipclass">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
+        android:name=".FlipClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher1"
         android:label="@string/app_name"
@@ -14,32 +16,26 @@
         android:theme="@style/Theme.Flipclass">
         <activity
             android:name=".ui.activity.ChatActivity"
-            android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ui.activity.UserListActivity"
-            android:exported="false" />
+            android:name=".ui.activity.UserListActivity"/>
         <activity
             android:name=".ui.activity.SignUpPageActivity"
-            android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.activity.LoginPageActivity"
-            android:exported="false"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".ui.activity.MessageActivity"
-            android:exported="false" />
+            android:name=".ui.activity.MessageActivity"/>
         <activity
-            android:name=".ui.activity.MyProfileActivity"
-            android:exported="false" />
+            android:name=".ui.activity.MyProfileActivity"/>
         <activity
-            android:name=".ui.activity.MessagesActivity"
-            android:exported="false" />
+            android:name=".ui.activity.MessagesActivity"/>
         <activity
-            android:name=".ui.activity.TeacherActivity"
-            android:exported="false" />
+            android:name=".ui.activity.TeacherActivity"/>
+        <activity
+            android:name=".ui.activity.MainActivity" />
         <activity
             android:name=".ui.activity.LoginActivity"
             android:exported="true">
@@ -48,8 +44,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.activity.MainActivity"
-            android:exported="true" />
     </application>
 </manifest>

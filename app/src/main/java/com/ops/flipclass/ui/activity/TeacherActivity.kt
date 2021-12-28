@@ -18,13 +18,14 @@ import com.ops.flipclass.utilities.SharedPrefsUtils
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_teacher.*
 import kotlinx.android.synthetic.main.app_toolbar.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
+@InternalCoroutinesApi
 class TeacherActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
     private lateinit var mGoogleSignInClient: GoogleSignInClient
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
