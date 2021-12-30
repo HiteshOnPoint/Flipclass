@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -63,6 +64,12 @@ class TeacherActivity : AppCompatActivity() {
             val userEmail = acct.email
             val userId = acct.id
             val userPhoto: Uri? = acct.photoUrl
+
+            Toast.makeText(
+                this@TeacherActivity,
+                "$userName\n$userGivenName\n$userFamilyName\n$userEmail\n$userId\n$userPhoto",
+                Toast.LENGTH_SHORT
+            ).show()
 
 
             SharedPrefsUtils.setStringPreference(this,"userName", userName)
@@ -149,4 +156,15 @@ class TeacherActivity : AppCompatActivity() {
         super.onPause()
         status("offline")
     }*/
+
+    override fun onStart() {
+        super.onStart()
+
+        val userDetails= "clientId : " + SharedPrefsUtils.getUserData(this@TeacherActivity).clientData!!.clientId +"\n"+
+                "isRegister : " +SharedPrefsUtils.getUserData(this@TeacherActivity).clientData!!.IsRegister+"\n"+
+                "timeZone : " +SharedPrefsUtils.getUserData(this@TeacherActivity).clientData!!.timezone+"\n"+
+                "accessToken : " +SharedPrefsUtils.getUserData(this@TeacherActivity).clientData!!.accessToekn
+
+        Toast.makeText(applicationContext, userDetails, Toast.LENGTH_LONG).show()
+    }
 }

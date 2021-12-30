@@ -18,10 +18,14 @@ class ApiRepository(private val apiService: WebService) {
     * login
     * */
     fun login(
+        firstName: String,
+        lastName: String,
+        googleAuthKey: String,
+        email: String
     ): Flow<APiState<LoginResponse>> {
         return object : NetworkBoundRepository<LoginResponse>() {
             override suspend fun fetchFromRemote(): Response<LoginResponse> =
-                apiService.login()
+                apiService.login(firstName, lastName, "1982-04-17", googleAuthKey, email)
         }.asFlow().flowOn(Dispatchers.IO)
     }
 

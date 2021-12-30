@@ -66,10 +66,10 @@ class LoginActivity : AppCompatActivity() {
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
 
-        llSignInStudent.setOnClickListener{
+        /*llSignInStudent.setOnClickListener{
             executeLogin()
         }
-
+*/
         //val account = GoogleSignIn.getLastSignedInAccount(this)
 
         initObserver()
@@ -91,12 +91,16 @@ class LoginActivity : AppCompatActivity() {
                     Log.e(TAG, data.toString())
                     if (data.status == "success") {
                         if (data.clientData != null) {
-                            Toast.makeText(applicationContext, "Login Data Loaded.\n clientID: ${data.clientData?.clientId}\n timeZone: ${data.clientData?.timezone}", Toast.LENGTH_LONG).show()
-                        //loadLoginData(data)
+
+                            loadLoginData(data)
+
+                            //Toast.makeText(applicationContext, "Login Data Loaded.\n clientID: ${data.clientData?.clientId}\n timeZone: ${data.clientData?.timezone}", Toast.LENGTH_LONG).show()
                         } else {
+                            Infrastructure.dismissProgressDialog()
                             Infrastructure.showToastMessage(this, data.message)
                         }
                     } else {
+                        Infrastructure.dismissProgressDialog()
                         Infrastructure.showToastMessage(this, data.message)
                     }
                 }
@@ -111,18 +115,19 @@ class LoginActivity : AppCompatActivity() {
         SharedPrefsUtils.setStringPreference(this, SharedPrefConstants.ACCESS_TOKEN,data.clientData?.accessToekn)
         SharedPrefsUtils.setIntegerPreference(this, SharedPrefConstants.LOGIN_STATUS, 1)
 
+        //Toast.makeText(applicationContext, "Login Data Loaded.\n clientID: ${data.clientData?.clientId}\n timeZone: ${data.clientData?.timezone}", Toast.LENGTH_LONG).show()
 
-        Toast.makeText(applicationContext, "Login Data Loaded.\n clientID: ${data.clientData?.clientId}\n timeZone: ${data.clientData?.timezone}", Toast.LENGTH_LONG).show()
-
-    /*Handler().postDelayed({
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-        }, 1000)*/
+    Handler().postDelayed({
+            startActivity(Intent(this@LoginActivity, TeacherActivity::class.java))
+                                Toast.makeText(this@LoginActivity, "Signed In Successfully", Toast.LENGTH_SHORT).show()
+                                finish()
+        }, 1000)
     }
 
-    private fun executeLogin() {
-        val deviceId = Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID)
+    private fun executeLogin(userGivenName: String, userFamilyName: String, userId: String, userEmail: String) {
+
         viewModel.login(
+            userGivenName, userFamilyName, userId, userEmail
         )
     }
 
@@ -159,17 +164,18 @@ class LoginActivity : AppCompatActivity() {
 
                     val acct = GoogleSignIn.getLastSignedInAccount(this)
                     if (acct != null) {
-                        val name = acct.displayName
-                        val email = acct.email
-                        val photo: Uri? = acct.photoUrl
+                        val userGivenName = acct.givenName
+                        val userFamilyName = acct.familyName
+                        val userEmail = acct.email
+                        val userId = acct.id
+                        val userPhoto: Uri? = acct.photoUrl
 
-                        addUserToDatabase(name, email, mAuth.currentUser?.uid!!, photo.toString())
+                        executeLogin(userGivenName, userFamilyName, userId, userEmail)
+
+                        //addUserToDatabase(name, email, mAuth.currentUser?.uid!!, photo.toString())
                     }
 
                     // Signed in successfully, show authenticated UI.
-                    startActivity(Intent(this@LoginActivity, TeacherActivity::class.java))
-                    Toast.makeText(this@LoginActivity, "Signed In Successfully", Toast.LENGTH_SHORT).show()
-                    finish()
 
                 } else {
                     // If sign in fails, display a message to the user.

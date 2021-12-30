@@ -9,9 +9,16 @@ interface WebService {
     /*
     * login
     * */
-    @GET("services/studentLogin.php")
+    @POST("services/studentLogin.php")
     @Headers("Content-Type:application/x-www-form-urlencoded")
-    suspend fun login(): Response<LoginResponse>
+    @FormUrlEncoded
+    suspend fun login(
+        @Field("firstName") firstName: String?,
+        @Field("lastName") lastName: String?,
+        @Field("birthDate") birthDate: String?,
+        @Field("googleAuthKey") googleAuthKey: String?,
+        @Field("email") email: String?,
+    ): Response<LoginResponse>
 
     /*@GET("api/banner")
     suspend fun getBanner(

@@ -20,9 +20,13 @@ class LoginViewModel(private val repository: ApiRepository) : ViewModel() {
     val loginHoldLiveData: LiveData<APiState<LoginResponse>> get() = loginLiveData
 
     fun login(
+        firstName: String,
+        lastName: String,
+        googleAuthKey: String,
+        email: String
     ) {
         viewModelScope.launch {
-            repository.login().collect {
+            repository.login(firstName, lastName, googleAuthKey, email).collect {
                 loginLiveData.value = it
             }
         }

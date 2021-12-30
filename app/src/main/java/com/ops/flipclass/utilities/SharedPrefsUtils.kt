@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.text.TextUtils
 import com.google.gson.Gson
+import com.ops.flipclass.models.LoginResponse
 
 //import com.pininfarina.essenza.model.appinfo.AppInfoResponse
 //import com.pininfarina.essenza.model.login.LoginResponse
@@ -208,9 +209,11 @@ object SharedPrefsUtils {
         return false
     }
 
-    /*fun getUserData(context: Context?): LoginResponse.Data.UserProfile {
-        return Gson().fromJson(getStringPreference(context!!, SharedPrefConstants.USER_DETAILS),LoginResponse.Data.UserProfile::class.java)
-    }*/
+    fun getUserData(context: Context?): LoginResponse {
+        return Gson().fromJson(
+            getStringPreference(context!!, SharedPrefConstants.USER_DETAILS),
+            LoginResponse::class.java)
+    }
 
     /*fun getAppInfo(context: Context?): AppInfoResponse {
         return Gson().fromJson(
